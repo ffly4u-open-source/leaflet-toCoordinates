@@ -1,0 +1,55 @@
+{
+  "name": "@ffly4u/leaflet-tocoordinates",
+  "version": "1.0.0",
+  "publishConfig": {
+    "tag": "latest"
+  },
+  "scripts": {
+    "dev": "webpack --mode=development",
+    "build": "webpack --progress"
+  },
+  "description": "A simple control to center map on specific coordinates to leaflet",
+  "main": "./src/leaflet-toCoordinates.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ffly4u-open-source/leaflet-toCoordinates.git"
+  },
+  "keywords": [
+    "geolocation",
+    "plugins",
+    "leaflet",
+    "gps",
+    "coordinates",
+    "map",
+    "geo"
+  ],
+  "author": "Sébastien Rodriguez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ffly4u-open-source/leaflet-toCoordinates/issues"
+  },
+  "homepage": "https://github.com/ffly4u-open-source/leaflet-toCoordinates#readme",
+  "browserslist": "> 0.25%, not dead",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-loader": "^3.0.2",
+    "leaflet": "^1.5.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^8.0.0",
+    "terser-webpack-plugin": "^2.2.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.7.2"
+  }
+}
