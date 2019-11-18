@@ -40,13 +40,13 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'leaflet.css'
+      filename: 'leaflet.css',
     }),
   ],
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin(),
       new TerserJSPlugin(),
-    ]
-  }
+    ],
+  },
 };
