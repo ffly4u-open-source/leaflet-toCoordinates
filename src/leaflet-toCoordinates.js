@@ -181,11 +181,12 @@ const Control = {
     // Check the validity of the query
     if (coordinates.length >= 2 && coordinates.length <= 3) {
       let valid = true;
-      for (const entry of coordinates) {
-        if (isNaN(entry)) {
+
+      coordinates.forEach((entry) => {
+        if (Number.isNaN(entry)) {
           valid = false;
         }
-      }
+      });
 
       // If is valid change center and return true
       if (valid) {
