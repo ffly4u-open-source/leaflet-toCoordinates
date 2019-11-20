@@ -19,6 +19,7 @@ yarn add @ffly4u/leaflet-tocoordinates
 ```js
 import L from 'leaflet';
 import LeafletToCoordinates from '@ffly4u/leaflet-tocoordinates';
+import '@ffly4u/leaflet-tocoordinates/dist/leaflet.css';
 
 const control = new LeafletToCoordinates();
 
