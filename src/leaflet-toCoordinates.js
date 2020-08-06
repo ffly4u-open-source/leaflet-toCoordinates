@@ -103,7 +103,7 @@ const Control = {
     if (typeof this.barContainer !== 'undefined') {
       this.barContainer.remove();
     }
-    // ASSURE quon restaure les handlers au remove
+    // Ensure to restore the handlers on remove
     this.restoreHandlers(null);
     return this;
   },
@@ -119,6 +119,8 @@ const Control = {
 
     if (this.searchElement.isActive) {
       this.searchElement.resetActive();
+      // Ensure to restore the handlers when search Element is closed
+      this.restoreHandlers(null);
     } else {
       this.searchElement.setActive();
     }
@@ -130,10 +132,13 @@ const Control = {
    * @param {MouseEvent} event
    */
   disableHandlers(event) {
-    const { form } = this.searchElement.elements;
+    // Event null force to disable handlers
+    if (event !== null) {
+      const { form } = this.searchElement.elements;
 
-    if (this.handlersDisabled || (event && event.target !== form)) {
-      return;
+      if (this.handlersDisabled || event.target === form || event.target.parentElement === form) {
+        return;
+      }
     }
 
     this.handlersDisabled = true;
@@ -148,13 +153,17 @@ const Control = {
   /**
    * Reactivates the interaction
    *
-   * @param {MouseEvent} event
+   * @param {MouseEvent|null} event
    */
   restoreHandlers(event) {
-    const { form } = this.searchElement.elements;
+    // Event null force to restore handlers
+    if (event !== null) {
+      const { form } = this.searchElement.elements;
 
-    if (!this.handlersDisabled || (event && event.target !== form)) {
-      return;
+      // If handlers is not disabled or is not valid target
+      if (!this.handlersDisabled || event.target === form || event.target.parentElement === form) {
+        return;
+      }
     }
 
     setTimeout(() => {

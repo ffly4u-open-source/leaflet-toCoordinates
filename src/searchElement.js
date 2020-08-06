@@ -42,6 +42,11 @@ export default class SearchElement {
     const container = L.DomUtil.create('div', ['tocoordinates', classNames.container].join(' '));
     const form = L.DomUtil.create('form', ['', classNames.form].join(' '), container);
     const input = L.DomUtil.create('input', ['glass', classNames.input].join(' '), form);
+
+    if (!(input instanceof HTMLInputElement)) {
+      throw new Error(`${classNames.input} is not an input`)
+    }
+
     input.type = 'text';
     input.placeholder = inputLabel;
 
