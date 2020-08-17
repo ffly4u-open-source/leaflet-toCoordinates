@@ -27,6 +27,17 @@ const mapHandlers = [
   'keyboard',
 ];
 
+function isDescendant(parent, child) {
+  let element = child
+  while (element !== null) {
+    if (element === parent) {
+      return true
+    }
+    element = element.parentElement
+  }
+  return false
+}
+
 const Control = {
   initialize(options) {
     this.markers = new L.FeatureGroup();
@@ -136,7 +147,7 @@ const Control = {
     if (event !== null) {
       const { form } = this.searchElement.elements;
 
-      if (this.handlersDisabled || event.target === form || event.target.parentElement === form) {
+      if (this.handlersDisabled || !isDescendant(form, event.target)) {
         return;
       }
     }
@@ -161,7 +172,7 @@ const Control = {
       const { form } = this.searchElement.elements;
 
       // If handlers is not disabled or is not valid target
-      if (!this.handlersDisabled || event.target === form || event.target.parentElement === form) {
+      if (!this.handlersDisabled || !isDescendant(form, event.target)) {
         return;
       }
     }
